@@ -47,4 +47,14 @@ class Config
         return Config::$isProduction ?
             Config::PRODUCTION_BASE_URL : Config::SANDBOX_BASE_URL;
     }
+
+    /**
+     * Load Configuration 
+     */
+    public static function Configurations($params)
+    {
+        Config::$apikey = $params['apikey'];
+        Config::$username = $params['username'];
+        ($params['production'] == true) ? Config::$isProduction  = true : Config::$isProduction;
+    }
 }
