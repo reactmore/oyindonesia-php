@@ -30,3 +30,48 @@ add this require line to your `composer.json` file:
 
 and run `composer install` on your terminal.
 
+## 2. Use
+
+### 1.Set Configuration and Use Get
+
+```php
+// load vendor 
+require_once "vendor/autoload.php";
+
+// load apikey
+\Oyindonesia\Config::$apikey = 'api_key_here';
+// load username
+\Oyindonesia\Config::$username = 'username_here';
+// load isProduction true or false (default false) or comment is false
+\Oyindonesia\Config::$isProduction = true;
+
+ /**
+  * Send GET request to Check Balance
+  */
+$result = \Oyindonesia\Accountinquiry::balance();
+
+echo '<pre>';
+var_dump($result);
+echo '</pre>';
+```
+### 2.Set Configuration and Use Post
+```php
+// load vendor 
+require_once "vendor/autoload.php";
+
+// load apikey
+\Oyindonesia\Config::$apikey = 'api_key_here';
+// load username
+\Oyindonesia\Config::$username = 'username_here';
+// load isProduction true or false (default false) or comment is false
+\Oyindonesia\Config::$isProduction = true;
+$data = array(
+"bank_code" => "014",
+"account_number" => "1239812390"
+);
+$result = \Oyindonesia\Accountinquiry::getAccountinquiry($data);
+
+echo '<pre>';
+var_dump($result);
+echo '</pre>';
+```
