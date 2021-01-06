@@ -81,3 +81,30 @@ echo '<pre>';
 var_dump($result);
 echo '</pre>';
 ```
+
+## 3. Method
+
+### Configure the client
+For the request params and responses please refer https://api-docs.oyindonesia.com/
+
+```php
+$params = [
+    'apikey' => 'api_key_here',
+    'username' => 'username_here',
+    'production' => false,
+];
+
+Config::Configurations($params);
+```
+
+### Methods
+
+Get account details
+```php
+Accountinquiry::getAccountinquiry($params)
+```
+Get account balance
+```php
+Accountinquiry::balance()
+```
+ON PROGRESS
