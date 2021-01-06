@@ -38,12 +38,15 @@ and run `composer install` on your terminal.
 // load vendor 
 require_once "vendor/autoload.php";
 
-// load apikey
-\Oyindonesia\Config::$apikey = 'api_key_here';
-// load username
-\Oyindonesia\Config::$username = 'username_here';
-// load isProduction true or false (default false) or comment is false
-\Oyindonesia\Config::$isProduction = true;
+
+// load Configurations
+$params = [
+    'apikey' => 'api_key_here',
+    'username' => 'username_here',
+    'production' => false,
+];
+
+\Oyindonesia\Config::Configurations($params);
 
  /**
   * Send GET request to Check Balance
@@ -59,12 +62,15 @@ echo '</pre>';
 // load vendor 
 require_once "vendor/autoload.php";
 
-// load apikey
-\Oyindonesia\Config::$apikey = 'api_key_here';
-// load username
-\Oyindonesia\Config::$username = 'username_here';
-// load isProduction true or false (default false) or comment is false
-\Oyindonesia\Config::$isProduction = true;
+// load Configurations
+$params = [
+    'apikey' => 'api_key_here',
+    'username' => 'username_here',
+    'production' => false,
+];
+
+\Oyindonesia\Config::Configurations($params);
+
 $data = array(
 "bank_code" => "014",
 "account_number" => "1239812390"
