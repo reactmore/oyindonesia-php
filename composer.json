@@ -1,0 +1,26 @@
+{
+    "name": "reactmore/oyindonesia-php",
+    "description": "PHP Wrapper for Oyindonesia Payment API.",
+    "homepage": "https://reactmore/oyindonesia-php",
+    "version": "1.0.0",
+    "type": "library",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Reactmore",
+            "email": "reactmorecom@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "5.7.*",
+        "psy/psysh": "0.4.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Oyindonesia\\": "Oyindonesia/"
+        }
+    }
+}
