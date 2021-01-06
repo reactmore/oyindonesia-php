@@ -66,12 +66,13 @@ class Accountinquiry
   *
   * @method Get
   */
-  public static function InvoicesPay() {
+  public static function InvoicesPay($params) {
 
     return ApiRequestor::get(
       Config::getBaseUrl() . 'account-inquiry/invoices/pay',
       Config::$apikey,
       Config::$username,
+      $params,
       false
     );
   }

@@ -72,14 +72,20 @@ class ApiRequestor
 
     if ($post) {
       $curl_options[CURLOPT_POST] = 1;
+      if ($data_hash) {
+        $body = json_encode($data_hash);
+        $curl_options[CURLOPT_POSTFIELDS] = $body;
+      } else {
+        $curl_options[CURLOPT_POSTFIELDS] = '';
+      }
     }
 
     if ($data_hash) {
       $body = json_encode($data_hash);
       $curl_options[CURLOPT_POSTFIELDS] = $body;
-    } else {
-      $curl_options[CURLOPT_POSTFIELDS] = '';
     }
+
+
 
     curl_setopt_array($ch, $curl_options);
 
@@ -106,13 +112,16 @@ class ApiRequestor
         die;
       }
 
-      if (!in_array($result_array->status->code, array(000, 102, 222, 300))) {
-        $message = 'Oyindonesia Error (' . $result_array->status->code . '): '
-        . $result_array->status->code;
-        if (isset($result_array->status->message)) {
-          $message .= '. Messages (' . $result_array->status->message . ')';
-        }
-        throw new \Exception($message, $result_array->status->code);
+      if (!in_array($result_array->status->code, array(000))) {
+
+        $data = [
+          "status" => $result_array->status->code,
+          "message" => $result_array->status->message,
+        ];
+
+        $message = json_encode($data, true);
+        echo $message;
+        die;
       } else {
         return $result_array;
       }
