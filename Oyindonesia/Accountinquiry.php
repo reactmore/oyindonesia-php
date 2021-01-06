@@ -60,4 +60,19 @@ class Accountinquiry
       false
     );
   }
+
+  /** Get Pay Account Inquiry Invoices
+  *
+  *
+  * @method Get
+  */
+  public static function InvoicesPay() {
+
+    return ApiRequestor::get(
+      Config::getBaseUrl() . 'account-inquiry/invoices/pay',
+      Config::$apikey,
+      Config::$username,
+      false
+    );
+  }
 }
