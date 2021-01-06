@@ -91,6 +91,8 @@ class ApiRequestor
         $info = curl_getinfo($ch);
         // curl_close($ch);
 
+        // var_dump($result);
+
         if ($result === false) {
             throw new \Exception('CURL Error: ' . curl_error($ch), curl_errno($ch));
         } else {
@@ -99,15 +101,13 @@ class ApiRequestor
             } catch (\Exception $e) {
                 throw new \Exception("API Request Error unable to json_decode API response: " . $result . ' | Request url: ' . $url);
             }
-            if (!in_array($result_array->status->code, array(200, 201, 202, 407))) {
+            if (!in_array($result_array->status->code, array(000, 102, 222, 300))) {
                 $message = 'Oyindonesia Error (' . $result_array->status->code . '): '
                     . $result_array->status->code;
                 if (isset($result_array->status->message)) {
-                    $message .= '. Validation Messages (' . implode(", ", $result_array->status->message) . ')';
+                    $message .= '. Messages (' . $result_array->status->message . ')';
                 }
-                if (isset($result_array->status->message)) {
-                    $message .= '. Error Messages (' . implode(", ", $result_array->status->message) . ')';
-                }
+
                 throw new \Exception($message, $result_array->status->code);
             } else {
                 return $result_array;
