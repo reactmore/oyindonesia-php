@@ -83,7 +83,6 @@ echo '</pre>';
 ```
 
 ## 3. Method
-
 ### Configure the client
 For the request params and responses please refer https://api-docs.oyindonesia.com/
 
