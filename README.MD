@@ -4,7 +4,7 @@ Oyindonesia-PHP
 
 [Oyindonesia](https://github.com/reactmore) :heart: PHP!
 
-This is the Unofficial PHP wrapper/library for Oyindonesia Payment API, that is compatible with Composer. Visit [https://api-docs.oyindonesia.com/](https://api-docs.oyindonesia.com/) for more information about the product and see documentation at [https://api-docs.oyindonesia.com/](https://api-docs.oyindonesia.com/) for more technical details.
+This is the Unofficial PHP wrapper/library for Oyindonesia Payment API, that is compatible with Composer. Visit [https://oyindonesia.com/](https://oyindonesia.com/) for more information about the product and see documentation at [https://api-docs.oyindonesia.com/](https://api-docs.oyindonesia.com/) for more technical details.
 
 ## 1. Installation
 
