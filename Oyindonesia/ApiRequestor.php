@@ -3,47 +3,50 @@
 namespace Oyindonesia;
 
 /**
-* Send request to Oyindonesia API
-* Better don't use this class directly, use CoreApi, Transaction
-*/
+ * Send request to Oyindonesia API
+ * Better don't use this class directly, use CoreApi, Transaction
+ */
 
 class ApiRequestor
 {
 
   /**
-  * Send GET request
-  *
-  * @param string  $url
-  * @param string  $apikey
-  * @param string  $username
-  * @param mixed[] $data_hash
-  */
-  public static function get($url, $apikey, $username, $data_hash) {
+   * Send GET request
+   *
+   * @param string  $url
+   * @param string  $apikey
+   * @param string  $username
+   * @param mixed[] $data_hash
+   */
+  public static function get($url, $apikey, $username, $data_hash)
+  {
     return self::remoteCall($url, $apikey, $username, $data_hash, false);
   }
 
   /**
-  * Send POST request
-  *
-  * @param string  $url
-  * @param string  $apikey
-  * @param string  $username
-  * @param mixed[] $data_hash
-  */
-  public static function post($url, $apikey, $username, $data_hash) {
+   * Send POST request
+   *
+   * @param string  $url
+   * @param string  $apikey
+   * @param string  $username
+   * @param mixed[] $data_hash
+   */
+  public static function post($url, $apikey, $username, $data_hash)
+  {
     return self::remoteCall($url, $apikey, $username, $data_hash, true);
   }
 
   /**
-  * Actually send request to API server
-  *
-  * @param string  $url
-  * @param string  $apikey
-  * @param string  $username
-  * @param mixed[] $data_hash
-  * @param bool    $post
-  */
-  public static function remoteCall($url, $apikey, $username, $data_hash, $post = true) {
+   * Actually send request to API server
+   *
+   * @param string  $url
+   * @param string  $apikey
+   * @param string  $username
+   * @param mixed[] $data_hash
+   * @param bool    $post
+   */
+  public static function remoteCall($url, $apikey, $username, $data_hash, $post = true)
+  {
     $ch = curl_init();
 
     $curl_options = array(
