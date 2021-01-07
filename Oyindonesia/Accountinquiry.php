@@ -6,21 +6,12 @@ namespace Oyindonesia;
 
 class Accountinquiry
 {
-  //Get Account Balance
 
-  public static function balance() {
-
-    return ApiRequestor::get(
-      Config::getBaseUrl() . 'balance',
-      Config::$apikey,
-      Config::$username,
-      false
-    );
-  }
 
   // account-inquiry Api
 
-  public static function getAccountinquiry($params) {
+  public static function getAccountinquiry($params)
+  {
     $result = ApiRequestor::post(
       Config::getBaseUrl() . 'account-inquiry',
       Config::$apikey,
@@ -32,11 +23,12 @@ class Accountinquiry
   }
 
   /** Get Account Inquiry Invoices
-  *
-  *
-  * @method Get
-  */
-  public static function Invoices() {
+   *
+   *
+   * @method Get
+   */
+  public static function Invoices()
+  {
 
     return ApiRequestor::get(
       Config::getBaseUrl() . 'account-inquiry/invoices',
@@ -47,11 +39,12 @@ class Accountinquiry
   }
 
   /** Get Account Inquiry Invoices By Id
-  *
-  *
-  * @method Get
-  */
-  public static function InvoicesId($params) {
+   *
+   *
+   * @method Get
+   */
+  public static function InvoicesId($params)
+  {
 
     return ApiRequestor::get(
       Config::getBaseUrl() . 'account-inquiry/invoices/' . $params,
@@ -61,19 +54,19 @@ class Accountinquiry
     );
   }
 
-  /** Get Pay Account Inquiry Invoices
-  *
-  *
-  * @method Get
-  */
-  public static function InvoicesPay($params) {
+  // /** Get Pay Account Inquiry Invoices
+  // *
+  // *
+  // * @method Get
+  // */
+  // public static function InvoicesPay($params) {
 
-    return ApiRequestor::get(
-      Config::getBaseUrl() . 'account-inquiry/invoices/pay',
-      Config::$apikey,
-      Config::$username,
-      $params,
-      false
-    );
-  }
+  //   return ApiRequestor::get(
+  //     Config::getBaseUrl() . 'account-inquiry/invoices/pay',
+  //     Config::$apikey,
+  //     Config::$username,
+  //     $params,
+  //     false
+  //   );
+  // }
 }
