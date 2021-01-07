@@ -20,7 +20,7 @@ class Disbursement
     public static function remit($params)
     {
         $result = ApiRequestor::post(
-            Config::getBaseUrl() . 'remit/',
+            Config::getBaseUrl() . 'remit',
             Config::$apikey,
             Config::$username,
             $params
@@ -40,7 +40,31 @@ class Disbursement
     public static function remitStatus($params)
     {
         $result = ApiRequestor::post(
-            Config::getBaseUrl() . 'remit-status/',
+            Config::getBaseUrl() . 'remit-status',
+            Config::$apikey,
+            Config::$username,
+            $params
+        );
+
+        return $result;
+    }
+
+    /** Use this Method to start disbursing money 
+     *  With Scheduled
+     * 
+     * @method POST
+     * "recipient_bank": <int>
+     * "recipient_account": <int>
+     * "amount": <int>
+     * "note": "<string>"
+     * "partner_trx_id": "<string>"
+     * "email" : "<string>"
+     * "schedule_date" : "<date>"
+     */
+    public static function scheduledRemit($params)
+    {
+        $result = ApiRequestor::post(
+            Config::getBaseUrl() . 'scheduled-remit',
             Config::$apikey,
             Config::$username,
             $params
