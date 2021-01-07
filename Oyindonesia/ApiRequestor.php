@@ -97,7 +97,8 @@ class ApiRequestor
     $info = curl_getinfo($ch);
     // curl_close($ch);
 
-
+    // var_dump($result);
+    // die;
     if ($result === false) {
       throw new \Exception('CURL Error: ' . curl_error($ch), curl_errno($ch));
     } else {
@@ -106,6 +107,7 @@ class ApiRequestor
       } catch (\Exception $e) {
         throw new \Exception("API Request Error unable to json_decode API response: " . $result . ' | Request url: ' . $url);
       }
+
       if ($info['http_code'] == 403) {
         $data = [
           'status' => 403,
@@ -115,7 +117,7 @@ class ApiRequestor
         die;
       }
 
-      if (!in_array($result_array->status->code, array(000))) {
+      if (!empty($result_array->status->code) && !in_array($result_array->status->code, array(000))) {
 
         $data = [
           "status" => $result_array->status->code,
