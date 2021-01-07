@@ -23,3 +23,5 @@ require_once 'Oyindonesia/Config.php';
 // Plumbing
 require_once 'Oyindonesia/ApiRequestor.php';
 require_once 'Oyindonesia/Accountinquiry.php';
+require_once 'Oyindonesia/Disbursement.php';
+require_once 'Oyindonesia/ApiCheckout.php';
