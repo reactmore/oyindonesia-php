@@ -100,10 +100,42 @@ Config::Configurations($params);
 
 Get account details
 ```php
-Accountinquiry::getAccountinquiry($params)
+Accountinquiry::getAccountinquiry($params);
 ```
-Get account balance
+Get All Invoices
 ```php
-Accountinquiry::balance()
+Accountinquiry::Invoices();
+```
+Get Invoices By Id
+```php
+Accountinquiry::InvoicesId($params);
+```
+Disbursement/Payout
+```php
+Disbursement::remit($params);
+```
+Disbursement status
+```php
+Disbursement::remitStatus($params);
+```
+Disbursement Schedule
+```php
+Disbursement::scheduledRemit($params);
+```
+Get Balance Account
+```php
+Disbursement::getBalance();
+```
+Api Checkout Create
+```php
+ApiChekout::create($params);
+```
+Api Checkout Create Invoices
+```php
+ApiChekout::createInvoice($params);
+```
+Api Checkout Status
+```php
+ApiChekout::status($params);
 ```
 ON PROGRESS
